@@ -56,4 +56,6 @@ exec java -server -Xmx512m -XX:MaxRAMFraction=1 -XX:+UseConcMarkSweepGC -XX:+CMS
 -Drpc.server.request-consumer.threads=${DH_RPC_SERVER_REQ_CONS_THREADS:-1} \
 -Drpc.server.worker.threads=${DH_RPC_SERVER_WORKER_THREADS:-1} \
 -Drpc.server.disruptor.wait-strategy=${DH_RPC_SERVER_DISR_WAIT_STRATEGY:-blocking} \
+-Dserver.context-path=/api \
+-Dserver.port=8090 \
 ./devicehive-backend-${DH_VERSION}-boot.jar
