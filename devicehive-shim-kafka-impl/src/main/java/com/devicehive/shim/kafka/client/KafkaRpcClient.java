@@ -56,7 +56,6 @@ public class KafkaRpcClient implements RpcClient {
     @Override
     public void start() {
         responseListener.startWorkers();
-        pingServer();
     }
 
     @Override
@@ -114,27 +113,4 @@ public class KafkaRpcClient implements RpcClient {
         requestProducer.close();
         responseListener.shutdown();
     }
-
-    private void pingServer() {
-        boolean connected = false;
-        int attempts = 10;
-        for (int i = 0; i < attempts; i++) {
-            logger.info("Ping RpcServer attempt {}", i);
-
-            if (ping()) {
-                connected = true;
-                break;
-            } else {
-                responseListener.shutdown();
-                responseListener.startWorkers();
-            }
-        }
-        if (connected) {
-            logger.info("Successfully connected to RpcServer");
-        } else {
-            logger.error("Unable to reach out RpcServer in {} attempts", attempts);
-            throw new RuntimeException("RpcServer is not reachable");
-        }
-    }
-
 }
