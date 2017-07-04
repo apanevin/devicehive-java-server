@@ -53,6 +53,7 @@ exec java -server -Xmx512m -XX:MaxRAMFraction=1 -XX:+UseConcMarkSweepGC -XX:+CMS
 -Dhazelcast.cluster.members=${HC_MEMBERS}:${HC_PORT} \
 -Dhazelcast.group.name=${HC_GROUP_NAME} \
 -Dhazelcast.group.password=${HC_GROUP_PASSWORD} \
+-Drpc.server.request-consumer.group=test-request-consumer-group \
 -Drpc.server.request-consumer.threads=${DH_RPC_SERVER_REQ_CONS_THREADS:-1} \
 -Drpc.server.worker.threads=${DH_RPC_SERVER_WORKER_THREADS:-1} \
 -Drpc.server.disruptor.wait-strategy=${DH_RPC_SERVER_DISR_WAIT_STRATEGY:-blocking} \

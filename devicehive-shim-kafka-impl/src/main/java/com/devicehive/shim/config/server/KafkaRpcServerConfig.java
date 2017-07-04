@@ -57,7 +57,7 @@ import java.util.concurrent.Executors;
 @PropertySource("classpath:kafka.properties")
 public class KafkaRpcServerConfig {
 
-    public static final String REQUEST_TOPIC = "request_topic";
+    public static final String REQUEST_TOPIC = "test_request_topic";
 
     @Autowired
     private Environment env;
